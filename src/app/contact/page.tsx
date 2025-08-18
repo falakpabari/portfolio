@@ -11,14 +11,15 @@ export default function Contact() {
     message: '',
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // This is a placeholder: use a real backend or mail service for production
     const mailtoLink = `mailto:falak_pabari@brown.edu?subject=${encodeURIComponent(
       form.subject || 'Contact from Website'
     )}&body=${encodeURIComponent(
@@ -29,14 +30,15 @@ export default function Contact() {
   };
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-white px-6 py-16">
+    <main className="min-h-screen flex items-center justify-center bg-white px-6 py-16 pt-24">
+      {/* Added pt-24 so content starts below the sticky navbar */}
       <form
         onSubmit={handleSubmit}
         className="w-full max-w-3xl space-y-6"
       >
         <div className="flex space-x-6">
           <div className="w-1/2">
-          <label className="block font-bold mb-1 text-black">First Name *</label>
+            <label className="block font-bold mb-1 text-black">First Name *</label>
             <input
               name="firstName"
               required
@@ -45,7 +47,7 @@ export default function Contact() {
             />
           </div>
           <div className="w-1/2">
-          <label className="block font-bold mb-1 text-black">Last Name *</label>
+            <label className="block font-bold mb-1 text-black">Last Name *</label>
             <input
               name="lastName"
               required
@@ -56,7 +58,7 @@ export default function Contact() {
         </div>
 
         <div>
-        <label className="block font-bold mb-1 text-black">Email *</label>
+          <label className="block font-bold mb-1 text-black">Email *</label>
           <input
             type="email"
             name="email"
@@ -67,7 +69,7 @@ export default function Contact() {
         </div>
 
         <div>
-        <label className="block font-bold mb-1 text-black">Subject</label>
+          <label className="block font-bold mb-1 text-black">Subject</label>
           <input
             name="subject"
             onChange={handleChange}
@@ -76,7 +78,7 @@ export default function Contact() {
         </div>
 
         <div>
-        <label className="block font-bold mb-1 text-black">Message</label>
+          <label className="block font-bold mb-1 text-black">Message</label>
           <textarea
             name="message"
             rows={4}

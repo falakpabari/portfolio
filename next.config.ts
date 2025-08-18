@@ -1,9 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export",            // tells Next to write static files to ./out
-  basePath: "/portfolio",      // because your repo is falakpabari/portfolio
-  images: { unoptimized: true } // required when exporting with next/image
+  output: "export",
+  basePath: "/portfolio",
+  assetPrefix: "/portfolio",            // helps GH Pages find _next assets
+  images: { unoptimized: true },
+  trailingSlash: true,                  // static hosting friendly
+  env: { NEXT_PUBLIC_BASE_PATH: "/portfolio" },
 };
 
 export default nextConfig;
